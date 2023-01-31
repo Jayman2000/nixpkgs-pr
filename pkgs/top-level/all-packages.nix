@@ -1545,6 +1545,8 @@ with pkgs;
 
   vitess = callPackage ../development/tools/database/vitess {};
 
+  wolfstoneextract = callPackage ../tools/games/wolfstoneextract {};
+
   voms = callPackage ../tools/networking/voms { };
 
   vopono = callPackage ../tools/networking/vopono { };
