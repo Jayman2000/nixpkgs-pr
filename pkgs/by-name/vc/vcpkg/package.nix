@@ -32,6 +32,10 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   installPhase = ''
       runHook preInstall
 
+      # If we don’t turn this off, then you won’t be able to run binaries that
+      # are installed by vcpkg.
+      find -name '*linux*.cmake' -exec bash -c 'echo "set(VCPKG_FIXUP_ELF_RPATH OFF)" >> "$1"' -- {} \;
+
       mkdir -p "$out/bin" "$out/share/vcpkg/scripts/buildsystems"
       cp --preserve=mode -r ./{docs,ports,triplets,scripts,.vcpkg-root,versions,LICENSE.txt} "$out/share/vcpkg/"
 
