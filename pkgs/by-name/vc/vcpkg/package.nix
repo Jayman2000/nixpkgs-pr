@@ -2,6 +2,7 @@
 , stdenvNoCC
 , lib
 , vcpkg-tool
+, nix-update-script
 , makeWrapper
 , doWrap ? true
 }:
@@ -49,6 +50,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       runHook postInstall
     '';
 
+  passthru.updateScript = nix-update-script { };
   meta = {
     description = "C++ Library Manager";
     mainProgram = "vcpkg";
