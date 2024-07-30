@@ -60,7 +60,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     '';
 
   meta = {
-    description = "C++ Library Manager";
+    description = "C++ Library Manager for Windows, Linux, and MacOS";
     mainProgram = "vcpkg";
     homepage = "https://vcpkg.io/";
     license = lib.licenses.mit;
